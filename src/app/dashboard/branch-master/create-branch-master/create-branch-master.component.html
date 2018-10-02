@@ -1,0 +1,125 @@
+<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12 pl-0">
+                    <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Setup New Branch
+                    </p>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <form [formGroup]="branch_data" (ngSubmit)='onSubmit(branch_data)'>
+                        <h4 class="form-section"><i class="ft-info"></i>Branch Details</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="branch_name">Branch Name</label>
+                                    <input type="text" class="form-control" formControlName="branch_name" id="branch_name" name="branch_name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="branch_code">Branch Code</label>
+                                    <input type="text" class="form-control" formControlName="branch_code" id="branch_code" name="branch_code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="branch_gst_number">Branch GST Number</label>
+                                    <input type="text" class="form-control" formControlName="branch_gst_number" id="branch_gst_number" name="branch_gst_number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="form-section"><i class="ft-info"></i>Branch Address Details</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bbn">Block No./ Building Name</label>
+                                    <input type="text" class="form-control" formControlName="branch_address_building_name" id="bbn" name="bbn">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputRName">Road Name</label>
+                                    <input type="text" class="form-control" formControlName="branch_address_road_name" id="inputRName" name="inputRNamev">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lmark">Landmark</label>
+                                    <input type="text" class="form-control" formControlName="branch_address_landmark" id="lmark" name="lmark">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="text" class="form-control" id="pincode" formControlName="branch_address_pincode" name="pincode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="countrySelect">Country</label>
+                                    <select formControlName="branch_address_country" class="form-control" id="countrySelect">
+                      <option>Select Option</option>
+                      <option>India</option>
+                      <option>China</option>
+                      <option>Nepal</option>
+                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="stateSelect">State</label>
+                                    <select formControlName="branch_address_state" class="form-control" id="stateSelect">
+                      <option>Select Option</option>
+                      <option>Maharashtra</option>
+                      <option>Gujarat</option>
+                      <option>Rajasthan</option>
+                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="City">City</label>
+                                    <select formControlName="branch_address_city" class="form-control" id="CitySelect">
+                      <option>Select Option</option>
+                      <option>Mumbai</option>
+                      <option>Nagpur</option>
+                      <option>Thane</option>
+                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="form-section"><i class="ft-info"></i>Branch Bank Details</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="branch_bank">Bank Select</label>
+                                    <select formControlName="branch_bank" class="form-control" id="branch_bank"> 
+                            <option *ngFor="let bank of banks" value="{{bank.id}}">{{bank.name}}-{{bank.account_no}}</option>
+                       
+                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" [disabled]=isProcessing value="Save" class="btn btn-raised btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>

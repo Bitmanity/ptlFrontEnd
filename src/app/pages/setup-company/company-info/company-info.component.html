@@ -1,0 +1,88 @@
+<section>
+    <div class="container-fluid">
+      <div class="row full-height-vh">
+        <div class="col-12 d-flex align-items-center justify-content-center flex-column">
+          <div class="mb-2">
+            <div class="row">
+              <div class="col-12">
+                <h2>
+                  First, Let's Complete The Company Setup Process
+                </h2>
+              </div>
+            </div>
+          </div>
+          <br>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="col-lg-12 pl-0">
+                <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Company Details
+</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-block">
+                <form class="form" [formGroup]="company_data" (ngSubmit)='toNext(company_data)'>
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                          <label for="CName">Company Name</label>
+                          <input type="text" formControlName="company_name" class="form-control" id="CName" name="CName">
+                          <div *ngIf="f.company_name.invalid && (f.company_name.dirty || f.company_name.touched)"
+                                class="alert alert-danger">
+                              <div *ngIf="f.company_name.errors.required">
+                                Company Name is required.
+                              </div>
+                          </div>
+
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="DName">Company Display Name</label>
+                          <input type="text" formControlName="company_display_name" class="form-control" id="DName"
+                            name="DName">
+                            <div role="alert" *ngIf="f.company_display_name.invalid && (f.company_display_name.dirty || f.company_display_name.touched)">
+                              <div *ngIf="f.company_display_name.errors.required" class="alert alert-warning">
+                                Company Display Name is required.
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 ">
+                        <div class="form-group">
+                          <label for="fax">FAX Number</label>
+                          <input type="text" formControlName="company_fax_number" class="form-control" id="fax" name="fax">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="website">Website</label>
+                          <input type="text" formControlName="company_website" class="form-control" id="website" name="website">
+                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" d-flex justify-content-between">
+                      <div>
+                        <p>1/4</p>
+                      </div>
+                      <div>
+                        <input type="submit" value="Next" class="btn btn-raised btn-primary">
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

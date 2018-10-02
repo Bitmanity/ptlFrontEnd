@@ -1,0 +1,51 @@
+<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="col-lg-12 pl-0">
+                    <p class="text-left" style="text-transform: capitalize !important;font-weight: 400;font-size: 1.5rem;">Setup New Branch
+                    </p>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <form [formGroup]="bank_data" (ngSubmit)='onSubmit(bank_data)'>
+                        <h4 class="form-section"><i class="ft-info"></i>Branch Details</h4>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label for="bank_account_number">Account Number</label>
+                                    <input type="text" formControlName="bank_account_number" class="form-control" id="bank_account_number" name="bank_account_number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bank_name">Bank Name</label>
+                                    <input type="text" formControlName="bank_name" class="form-control" id="bank_name" name="bank_name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label for="bank_ifsc_code">IFSC Code</label>
+                                    <input type="text" formControlName="bank_ifsc_code" class="form-control" id="bank_ifsc_code" name="bank_ifsc_code" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bank_branch">Bank Branch</label>
+                                    <input type="text" formControlName="bank_branch" class="form-control" id="bank_branch" name="bank_branch">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" [disabled]=isProcessing value="Save" class="btn btn-raised btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
