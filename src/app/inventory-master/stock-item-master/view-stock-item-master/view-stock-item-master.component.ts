@@ -19,6 +19,6 @@ export class ViewStockItemMasterComponent implements OnInit {
   }
   toCreate()
   {
-    this.router.navigateByUrl('/inventory-master/stock-master');
+    this.router.navigateByUrl('/inventory-master/stock-item-master/create');
   }
 }
