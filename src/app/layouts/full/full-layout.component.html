@@ -1,10 +1,13 @@
+<div class="row" [hidden]="visible">
+    <button class="myBtn">Top</button>
+</div>
 <div class="wrapper" [dir]="options.direction">
     <div data-active-color="black" data-background-color="white" data-image="" class="app-sidebar">
         <app-sidebar></app-sidebar>
         <div class="sidebar-background"></div>
     </div>
     <app-navbar></app-navbar>
-    <div class="main-panel" style="margin-top: 10px;">    
+    <div class="main-panel" style="margin-top: 10px;">
         <div class="main-content">
             <div class="content-wrapper">
                 <div class="container-fluid">

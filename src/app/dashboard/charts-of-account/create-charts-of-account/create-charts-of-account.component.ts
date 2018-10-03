@@ -14,6 +14,7 @@ import * as alertFunctions from '../../../shared/data/sweet-alert';
 export class CreateChartsOfAccountComponent implements OnInit {
 
   active= 'today';
+  visible:boolean = true;
   chartOfAccounts: FormGroup;
   Router: any;
   constructor(

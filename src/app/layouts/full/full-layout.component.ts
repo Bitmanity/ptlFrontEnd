@@ -11,6 +11,7 @@ export class FullLayoutComponent {
     options = {
         direction: 'ltr'
     };
+    visible:boolean = false;
     constructor(
     	private shareService:ShareService){}
 
