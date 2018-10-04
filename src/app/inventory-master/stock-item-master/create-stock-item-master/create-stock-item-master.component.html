@@ -1,3 +1,143 @@
-<p>
-  create-stock-item-master works!
-</p>
+<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" id="basic-layout-colored-form-control">Stock Item Master</h4>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form class="form">
+                        <div class="form-body">
+                            <!-- <h4 class="form-section"><i class="ft-info"></i> Charges Details</h4> -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="create_stock_item_master_item_code">Item Code</label>
+                                        <input type="text" formControlName="create_stock_item_master_item_code" id="create_stock_item_master_item_code" class="form-control border-primary" name="create_stock_item_master_item_code">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="charges_master_charge_type">Charge Type</label>
+                                        <select class="form-control" formControlName="charges_master_charge_type" id="charges_master_charge_type">
+                                            <option>Excise Duty</option>
+                                            <option>Cess</option>
+                                            <option>Shec</option>
+                                            <option>Tax</option>
+                                            <option>Additional Tax</option>
+                                            <option>Surcharge</option>
+                                            <option>Freight</option>
+                                            <option>Discount</option>
+                                            <option>Cartage</option>
+                                            <option>Entry Tax</option>
+                                            <option>Insurance</option>
+                                            <option>Packing</option>
+                                            <option>Octroi</option>
+                                            <option>Misc.</option>
+                                          </select>
+                                    </div>
+                                </div> -->
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="create_stock_item_master_quanity">Quantity</label>
+                                        <input type="number" formControlName="create_stock_item_master_quanity" id="create_stock_item_master_quanity" class="form-control border-primary" name="create_stock_item_master_quanity">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="create_stock_item_master_size_in_master">Size in CMS</label>
+                                        <input type="number" formControlName="create_stock_item_master_size_in_master" id="create_stock_item_master_size_in_master" class="form-control border-primary" name="create_stock_item_master_size_in_master">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="create_stock_item_master_size_in_master">GSM</label>
+                                        <input type="number" formControlName="charges_master_purchase_account" id="charges_master_purchase_account" class="form-control border-primary" name="charges_master_purchase_account">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="charges_master_sales_account">Size in inch</label>
+                                        <input type="number" formControlName="charges_master_sales_account" id="charges_master_sales_account" class="form-control border-primary" name="charges_master_sales_account">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="charges_master_sales_account">No. of Sheets in per Pkt/Gross</label>
+                                        <input type="number" formControlName="charges_master_sales_account" id="charges_master_sales_account" class="form-control border-primary" name="charges_master_sales_account">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="raw_product_purchase_percentage">Pkt/Gross Weight</label>
+                                        <input type="number" formControlName="charges_master_purchase_account" id="raw_product_purchase_account" class="form-control border-primary" name="raw_product_purchase_account">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="charges_master_decimal_place">No. of Grs/Pkts in per Bundle</label>
+                                        <input type="number" formControlName="charges_master_decimal_place" id="charges_master_decimal_place" class="form-control border-primary" name="charges_master_decimal_place">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="charges_master_decimal_place">Quantity Description</label>
+                                        <input type="number" formControlName="charges_master_decimal_place" id="charges_master_decimal_place" class="form-control border-primary" name="charges_master_decimal_place">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="oat">Item Type</label> <br>
+                                        <div class="btn-group btn-group-toggle" ngbRadioGroup id="ca_category" formControlName="ca_opening_type">
+                                            <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
+                                              <input ngbButton type="radio" value="Creditor"> Sheet
+                                            </label>
+                                            <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
+                                              <input ngbButton type="radio" class="radio" value="Debitor"> Reel
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="create_stock_item_master_quantity_group">Quantity Group</label>
+                                            <select class="form-control" formControlName="create_stock_item_master_quantity_group" id="create_stock_item_master_quantity_group">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                          </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="create_stock_item_master_minimum_stock_level">Minimum Stock Level</label>
+                                            <input type="number" formControlName="minimum_stock_minimum_stock_level" id="minimum_stock_minimum_stock_level" class="form-control border-primary" name="minimum_stock_minimum_stock_level">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="create_stock_item_master_maximum_stock_level">Maximum Stock Level</label>
+                                        <input type="number" formControlName="minimum_stock_maximum_stock_level" id="minimum_stock_maximum_stock_level" class="form-control border-primary" name="minimum_stock_maximum_stock_level">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions left">
+                            <input type="submit" value="Save" class="btn btn-raised btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

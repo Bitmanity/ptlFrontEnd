@@ -3,6 +3,7 @@ import { PlatformLocation } from '@angular/common'
 
 
 export const ROLES = {
+
 	GUEST : 0,
 	SYSTEM : 1,
 	ADMIN : 2,
@@ -10,6 +11,8 @@ export const ROLES = {
 	COMPANY : 4,
 	VIEWER : 5
 }
+// visible:boolean = false;
+let visible:boolean = false;
 
 @Injectable()
 export class ShareService {
@@ -39,5 +42,10 @@ export class ShareService {
 	isLoggedIn(){
 		return !!this.getCurrentUser();
 	}
-
+	getVisiblity(){
+		return visible;
+	}
+	setVisibility( value:boolean){
+		visible = value;
+	}
 }

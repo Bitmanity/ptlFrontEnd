@@ -11,11 +11,17 @@ export class FullLayoutComponent {
     options = {
         direction: 'ltr'
     };
-    visible:boolean = false;
+    visible:boolean
+    
     constructor(
-    	private shareService:ShareService){}
+        private shareService:ShareService){
+            this.visible = shareService.getVisiblity();
+        }
+        
 
     ngOnInit(){
-    console.log(this.shareService.getCurrentUser());
+    console.log(this.shareService.getCurrentUser()
+    );
+
     }
 }
