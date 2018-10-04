@@ -28,7 +28,8 @@ import { BankDetailsComponent } from './pages/setup-company/bank-details/bank-de
 import { CompanyOtherDetailsComponent } from './pages/setup-company/company-other-details/company-other-details.component';
 import { SelectCompanyComponent } from './pages/select-company/select-company.component';
 import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
-
+import { ToastrModule } from 'ngx-toastr';
+import * as animations from '@angular/platform-browser/animations';
 
 
 
@@ -55,6 +56,8 @@ export function tokenGetter() {
         ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule, // required animations module
+        ToastrModule.forRoot(),
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,

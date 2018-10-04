@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { JwtHelper } from 'angular2-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/auth/auth.service';
 import { Route, Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./select-company.component.scss']
 })
 export class SelectCompanyComponent implements OnInit {
-  jwtHelper:JwtHelper = new JwtHelper();
+  jwtHelper:JwtHelperService = new JwtHelperService();
   companies:any = [];
   user:any;
   company_data: FormGroup;	

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder,Validators } from '@angular/forms';
 import{FormDataService} from '../../../shared/services/form-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-const current_step = 1;
+const current_step = 2;
 @Component({
   selector: 'app-head-office-info',
   templateUrl: './head-office-info.component.html',
@@ -26,7 +26,7 @@ export class HeadOfficeInfoComponent implements OnInit {
     }
 
   		  this.company_data = fb.group({
-            "company_address_building_name":[buffer[0],Validators.required],
+            "company_address_building":[buffer[0],Validators.required],
             "company_address_road_name":[buffer[1],Validators.required],
             "company_address_landmark":[buffer[2],Validators.required],
             "company_address_pincode":[buffer[3],Validators.required],
@@ -42,19 +42,20 @@ export class HeadOfficeInfoComponent implements OnInit {
   toNext(data)
   {
     this.fdService.toNext(data.value,current_step);
-    this.fdService.storeData('admin/addHeadBranch/',data.value).then(data=>{
-      console.log(data)
-      this.router.navigateByUrl('setupCompany/BankDetails/');
-    })
-    .catch(error=>{
-      console.error(error)
-    })
+    this.router.navigateByUrl('setupCompany/BankDetails/');
+    // this.fdService.storeData('admin/addHeadBranch/',data.value).then(data=>{
+    //   console.log(data)
+      
+    // })
+    // .catch(error=>{
+    //   console.error(error)
+    // })
   }
   toPrevious(data)
   {
    
    this.fdService.toPrevious(data.value,current_step);
    console.log(this.fdService.getData());
-   this.router.navigateByUrl('setupCompany/OtherDetails');
+   this.router.navigateByUrl('setupCompany/OtherDetails/');
   }
 }

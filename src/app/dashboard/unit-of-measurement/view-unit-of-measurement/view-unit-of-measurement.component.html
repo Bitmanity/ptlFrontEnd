@@ -12,10 +12,13 @@
                                 <th>Branch Code</th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td>1</td>
                                     <td>2</td>
                                     <td>3</td>
+                                </tr> -->
+                                <tr *ngFor="let uom of rows">
+                                    <td>{{uom.unit_name}}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -94,7 +94,7 @@ const routes:Routes= [
         component:ViewChartsOfAccountComponent
       },
       {
-        path:'unit-of-measurement/create',
+        path:'unit-of-measurement/:id',
         component:CreateUnitOfMeasurementComponent
       },
       {

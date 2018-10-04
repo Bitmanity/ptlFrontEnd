@@ -1,4 +1,3 @@
-<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>
 <div class="row">
     <div class="col-md-8">
         <div class="card">
@@ -30,17 +29,17 @@
                                         <label for="ca_category">Category</label> <br />
                                         <div class="btn-group btn-group-toggle" ngbRadioGroup id="ca_category" formControlName="ca_category">
                                             <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
-                              <input ngbButton type="radio" value="Creditor"> Creditor
-                            </label>
+                          <input ngbButton type="radio" value="Creditor"> Creditor
+                        </label>
                                             <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
-                              <input ngbButton type="radio" class="radio" value="Debitor"> Debitor
-                            </label>
+                          <input ngbButton type="radio" class="radio" value="Debitor"> Debitor
+                        </label>
                                         </div>
 
                                         <!-- <select class="form-control" formControlName="ca_category" id="countrySelect">
-                            <option>Creditor</option>
-                            <option>Debtor</option>
-                          </select> -->
+                        <option>Creditor</option>
+                        <option>Debtor</option>
+                      </select> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -59,19 +58,19 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="oat">Opening Amount Type</label> <br>
+                                        <label for="oat">Opening Amount Type</label> <br/>
                                         <div class="btn-group btn-group-toggle" ngbRadioGroup id="ca_category" formControlName="ca_opening_type">
                                             <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
-                              <input ngbButton type="radio" value="Creditor"> Creditor
-                            </label>
+                          <input ngbButton type="radio" value="Creditor"> Creditor
+                        </label>
                                             <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
-                              <input ngbButton type="radio" class="radio" value="Debitor"> Debitor
-                            </label>
+                          <input ngbButton type="radio" class="radio" value="Debitor"> Debitor
+                        </label>
                                         </div>
                                         <!-- <select class="form-control" formControlName="ca_opening_type" id="oat">
-                            <option>Creditor</option>
-                            <option>Debtor</option>
-                          </select> -->
+                        <option>Creditor</option>
+                        <option>Debtor</option>
+                      </select> -->
                                     </div>
                                 </div>
                             </div>
@@ -81,15 +80,15 @@
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link" [class.active]="active=='today'" (click)="active='today'" role="tab"> Contact
-                              List </a>
+                          List </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link active" [class.active]="active=='missed'" (click)="active='missed'" role="tab">
-                              Address </a>
+                          Address </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" [class.active]="active=='future'" (click)="active='future'" role="tab">
-                              Other Details </a>
+                          Other Details </a>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
@@ -186,22 +185,22 @@
                                                     <div class="form-group">
                                                         <label for="countrySelect">Country</label>
                                                         <select class="form-control" formControlName="ca_address_country" id="countrySelect">
-                                    <option>Select Option</option>
-                                    <option>India</option>
-                                    <option>China</option>
-                                    <option>Nepal</option>
-                                  </select>
+                                <option>Select Option</option>
+                                <option>India</option>
+                                <option>China</option>
+                                <option>Nepal</option>
+                              </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="stateSelect">State</label>
                                                         <select class="form-control" formControlName="ca_address_state" id="stateSelect">
-                                    <option>Select Option</option>
-                                    <option>Maharashtra</option>
-                                    <option>Gujarat</option>
-                                    <option>Rajasthan</option>
-                                  </select>
+                                <option>Select Option</option>
+                                <option>Maharashtra</option>
+                                <option>Gujarat</option>
+                                <option>Rajasthan</option>
+                              </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,11 +209,11 @@
                                                     <div class="form-group">
                                                         <label for="City">City</label>
                                                         <select class="form-control" formControlName="ca_address_city" id="CitySelect">
-                                    <option>Select Option</option>
-                                    <option>Mumbai</option>
-                                    <option>Nagpur</option>
-                                    <option>Thane</option>
-                                  </select>
+                                <option>Select Option</option>
+                                <option>Mumbai</option>
+                                <option>Nagpur</option>
+                                <option>Thane</option>
+                              </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,6 +226,8 @@
                                                         <input type="text" formControlName="ca_pan" class="form-control" id="pan" name="pan">
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="gstn">GSTN</label>
@@ -241,69 +242,16 @@
                                                         <input type="text" formControlName="ca_tan" class="form-control" id="tan" name="tan">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="commodity">Commodity</label>
-                                                        <input type="text" formControlName="ca_commodity" class="form-control" id="commodity" name="commodity">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="ecc">ECC No.</label>
-                                                        <input type="text" formControlName="ca_ecc_no" class="form-control" id="ecc" name="ecc">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="commodity">RC No.</label>
-                                                        <input type="text" formControlName="ca_rc_no" class="form-control" id="rc" name="rc">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="division">Division</label>
-                                                        <input type="text" formControlName="ca_division" class="form-control" id="division" name="division">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="commodity">Range</label>
-                                                        <input type="text" formControlName="ca_range" class="form-control" id="range" name="range">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="comm">Commissionerate</label>
-                                                        <input type="text" formControlName="ca_commissionerate" class="form-control" id="comm" name="comm">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tn">TIN No.</label>
-                                                        <input type="text" formControlName="ca_tin_no" class="form-control" id="tn" name="tn">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
 
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="issueinput3">Date Opened</label>
                                                         <input type="date" formControlName="ca_date_opened" id="issueinput3" class="form-control" name="dateopened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="tn">CST No.</label>
-                                                        <input type="text" formControlName="ca_cst_no" class="form-control" id="cn" name="cn">
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -332,8 +280,3 @@
         </div>
     </div>
 </div>
-<!-- <div class="row">
-    <a href="#" class="float">
-        <i class="fa fa-plus my-float"></i>
-    </a>
-</div> -->

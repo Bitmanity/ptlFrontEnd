@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../../shared/services/api.service';
+import { AuthService } from '../../../shared/auth/auth.service';
 
-const current_step = 2;
+const current_step = 3;
 @Component({
   selector: 'app-bank-details',
   templateUrl: './bank-details.component.html',
@@ -12,7 +14,9 @@ const current_step = 2;
 export class BankDetailsComponent implements OnInit {
   company_data:FormGroup;
   
-  constructor(private fb:FormBuilder,
+  constructor(
+    private fb:FormBuilder,
+    private authService:AuthService,
     private fdService:FormDataService,
     private router:Router,
     private route:ActivatedRoute) {
@@ -29,7 +33,7 @@ export class BankDetailsComponent implements OnInit {
       "bank_branch":[buffer[3],Validators.required],
     });
    }
-
+   
   ngOnInit() {
   }
   
@@ -37,15 +41,27 @@ export class BankDetailsComponent implements OnInit {
   {
     let id = this.route.snapshot.paramMap.get('id');
     this.fdService.toNext(data.value,current_step);
-    this.fdService.storeData('admin/addBank',data.value).then(data=>{
-
-          this.router.navigateByUrl('dashboard');
-    })
-  
+    let formData:any = this.fdService.getData();
+    let output:any;
+    output = {...formData[0],...formData[1],...formData[2],...formData[3]}
+    
+    this.fdService.storeData('admin/company_wizard',output).then(data=>{
+          let l_data:any = data;
+          console.log(data);
+          if(l_data.status)
+          {
+            this.authService.updateToken(l_data.token);
+            this.router.navigateByUrl('dashboard');
+            
+          }
+      
+     }).catch(error =>{
+       console.error(error)
+     })
   }
   toPrevious(data)
   {
    this.fdService.toPrevious(data.value,current_step);
-   this.router.navigateByUrl('setupCompany/BranchDetails');
+   this.router.navigateByUrl('setupCompany/BranchDetails/');
   }
 }

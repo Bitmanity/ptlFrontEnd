@@ -3,7 +3,8 @@ import {HttpClient } from '@angular/common/http';
 import { Headers,Http } from '@angular/http';
 import { tokenGetter } from '../../app.module';
 
-export const address= 'http://127.0.0.1:8000/api/';
+// export const address= 'http://127.0.0.1:8000/api/';
+export const address= 'http://clarusinfo.com/apis/public/api/';
 
 @Injectable({
   providedIn: 'root'

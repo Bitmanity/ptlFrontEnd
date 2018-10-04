@@ -21,11 +21,11 @@ import { SelectCompanyComponent } from './pages/select-company/select-company.co
 
 
 const appRoutes: Routes = [
-  {
-    path: 'loogin',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: 'loogin',
+  //   redirectTo: 'login',
+  //   pathMatch: 'full',
+  // },
   {
   	path:'login',
   	component:LoginComponent,
