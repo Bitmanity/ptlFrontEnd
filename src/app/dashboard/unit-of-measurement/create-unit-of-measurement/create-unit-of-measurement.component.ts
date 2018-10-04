@@ -63,29 +63,11 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 			this.unit_data.patchValue(l_data.data);					
 		})
 	}
-
-  // onSubmit(unit_data) {
-  //   this.formService.storeData('admin/addUom', unit_data.value).then(data => {
-  //     let status: any = data
-  //     if (this.debug) {
-
-  //     }
-  //     if (status.status) {
-  //       alertFunctions.typeSuccess('Unit added Successfully')
-  //     }
-  //   }).catch(error => {
-  //     if (this.debug) {
-  //       console.log(error)
-  //     }
-  //   })
-  // }
-
   addOrUpdate(uom){
     this.notifyService.show({
       title: 'Success',
-      message: 'Done',
-      type: 'error'
-    });
+      message: 'Done'
+    }, 'error');
 		
 		this.formTouched = true;
 		if(uom.invalid){
@@ -99,28 +81,12 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
         let result: any = data;
 				//success
         this.isProcessing = false;
-        // if(result.status == 'success')
-				// 			{
-				// 				this.notifyService.show({
-				// 					title: 'Success',
-				// 					message: result.message
-				// 				});
-				// 				// this.getTask(this.paginationData.current_page);
-				// 			}
-				// 			else{
-				// 					this.notifyService.show({
-				// 						title: 'Error',
-				// 						type : 'error',
-				// 						message: result.message
-				// 					});
-        // 			}
         if(result.status == 'success')
 							{
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
 								});
-								// this.getTask(this.paginationData.current_page);
 							}
 							else{
 									this.notifyService.show({
@@ -129,23 +95,12 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 										message: result.message
 									});
 							}
-        
-        // this.notifyService.show({title: 'Success', message: res.message});
-
-				// if(uom.value.id == "new")
-				// // this.notifyService.show({title: 'Success', message: 'Media category added successfully'});
-				// else
-				// this.notifyService.show({title: 'Success', message: 'Media category updated successfully'});
-				// this.router.navigateByUrl('/admin/uom');
+    
 			})
 			.catch( error => {
         this.isProcessing = false;
         let errors: any = error;
         this.errors = errors;
-        // this.notifyService.show({title: 'Success', message: res.message}, 'error');
-
-				// if(typeof error.error.errors !== 'undefined')
-				// 	this.errors = error.error.errors;
 			})
 		
   }
