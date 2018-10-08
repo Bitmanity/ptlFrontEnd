@@ -102,7 +102,7 @@ const routes:Routes= [
         component:ViewUnitOfMeasurementComponent
       },
       {
-        path:'raw-product/create',
+        path:'raw-product/:id',
         component:CreateRawProductComponent
       },
       {

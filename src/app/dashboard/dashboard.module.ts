@@ -26,6 +26,7 @@ import { CreateGodownMasterComponent } from './godown-master/create-godown-maste
 import { ViewGodownMasterComponent } from './godown-master/view-godown-master/view-godown-master.component';
 import { CreateBillOfMaterialComponent } from './bill-of-material/create-bill-of-material/create-bill-of-material.component';
 import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-material/view-bill-of-material.component';
+import { CategoryMasterComponent } from './category-master/category-master.component';
 
 
 
@@ -63,6 +64,7 @@ import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-mat
     ViewGodownMasterComponent,
     CreateBillOfMaterialComponent,
     ViewBillOfMaterialComponent,
+    CategoryMasterComponent,
     
   ],
   exports:[]

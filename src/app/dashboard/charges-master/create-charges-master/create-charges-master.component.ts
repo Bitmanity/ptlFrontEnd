@@ -34,17 +34,16 @@ export class CreateChargesMasterComponent implements OnInit {
     private router:Router,
   ) { 
     this.charges_data = this.fb.group({
-      "charges_master_display_name":['',Validators.required],
-      "charges_master_charge_type":['',Validators.required],
-      "charges_master_purchase_account":['',Validators.required],
-      "charges_master_sales_account":['',Validators.required],
-      "raw_product_purchase_percentage":['',Validators.required],
-      "charges_master_decimal_place":['',Validators.required],
+      "charges_master_name":['',Validators.required],
+      "charges_master_charge_type":['Excise Duty',Validators.required],
+      "charges_master_purchase_account":['32',Validators.required],
+      "charges_master_sales_account":['3',Validators.required],
+      "charges_master_percentage":['2',Validators.required],
+      "charges_master_decimal_place":['1',Validators.required],
   })
   }
 
   ngOnInit() {
-    
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
@@ -66,12 +65,7 @@ export class CreateChargesMasterComponent implements OnInit {
 		})
 	}
   addOrUpdate(charges){
-    // this.notifyService.show({
-    //   title: 'Success',
-    //   message: 'Done'
-    // }, 'success');
-		
-		this.formTouched = true;
+  	this.formTouched = true;
 		if(charges.invalid){
 			return false;
 		}
@@ -107,13 +101,17 @@ export class CreateChargesMasterComponent implements OnInit {
   }
   resetErrorMessages(){
 		this.errors = {			
-			"id": [""],
-			"unit_name": [""]	
+      "charges_master_name": [""],
+      "charges_master_charge_type": [""],
+      "charges_master_purchase_account": [""],
+      "charges_master_sales_account": [""],
+      "charges_master_percentage": [""],
+      "charges_master_decimal_place": [""],
 		}
   }
   
   cancel(){
-    this.router.navigateByUrl('/dashboard/unit-of-measurement');
+    this.router.navigateByUrl('/dashboard/charges-master');
   }
 
 }

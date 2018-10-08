@@ -16,7 +16,7 @@ export class ViewRawProductComponent implements OnInit {
   }
   toCreate()
   {
-    this.router.navigateByUrl('/dashboard/raw-product/create');
+    this.router.navigateByUrl('/dashboard/raw-product/new');
   }
 
 

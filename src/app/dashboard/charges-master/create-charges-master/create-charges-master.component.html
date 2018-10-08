@@ -7,14 +7,14 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" [formGroup]="charges_data" (ngSubmit)="onSubmit('charges_data')">
+                    <form class="form" [formGroup]="charges_data" (ngSubmit)="addOrUpdate('charges_data')">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Charges Details</h4>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="charges_master_display_name">Charge Name</label>
-                                        <input type="text" formControlName="charges_master_display_name" id="charges_master_display_name" class="form-control border-primary" name="charges_master_display_name">
+                                        <label for="charges_master_name">Charge Name</label>
+                                        <input type="text" formControlName="charges_master_name" id="charges_master_name" class="form-control border-primary" name="charges_master_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -57,8 +57,8 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="raw_product_purchase_percentage">Percentage</label>
-                                        <input type="number" formControlName="charges_master_purchase_account" id="raw_product_purchase_account" class="form-control border-primary" name="raw_product_purchase_account">
+                                        <label for="charges_master_percentage">Percentage</label>
+                                        <input type="number" formControlName="charges_master_percentage" id="charges_master_percentage" class="form-control border-primary" name="charges_master_percentage">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

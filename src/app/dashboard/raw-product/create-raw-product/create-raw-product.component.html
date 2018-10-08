@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" [formGroup]="rawProduct" (ngSubmit)="onSubmit(rawProduct)">
+                    <form class="form" [formGroup]="raw_product_data" (ngSubmit)="addOrUpdate(raw_product_data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> Product Details</h4>
                             <div class="row">
@@ -15,6 +15,7 @@
                                     <div class="form-group">
                                         <label for="raw_product_name">Product Name</label>
                                         <input type="text" formControlName="raw_product_name" id="raw_product_name" class="form-control border-primary" name="raw_product_name">
+                                        <input type="hidden" formControlName="id" id="id" value="new" class="form-control border-primary" name="id">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -31,18 +32,17 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="raw_product_hsn_code">HSN Code</label>
-                                        <input type="text" formControlName="raw_product_hsn_code" id="raw_product_hsn_code" class="form-control border-primary" name="raw_product_hsn_code">
+                                        <label for="raw_product_hsn">HSN Code</label>
+                                        <input type="text" formControlName="raw_product_hsn" id="raw_product_hsn" class="form-control border-primary" name="raw_product_hsn">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="raw_product_product_category">Product Category</label>
-                                        <select class="form-control" formControlName="raw_product_product_category" id="raw_product_product_category" name="raw_product_product_category">
-                                                      <option>Category 1</option>
-                                                      <option>Category 2</option>
+                                        <label for="raw_product_category">Product Category</label>
+                                        <select class="form-control" formControlName="raw_product_category" id="raw_product_category" name="raw_product_category">
+                                                <option *ngFor="let product_category of productCategories" value="{{product_category.id}}">{{product_category.product_category_name}}</option>
                                                     </select>
                                     </div>
                                 </div>
@@ -50,7 +50,8 @@
                                     <div class="form-group">
                                         <label for="raw_product_uom">UOM</label>
                                         <select class="form-control" formControlName="raw_product_uom" id="raw_product_uom">
-                                              <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option>
+                                              <!-- <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option> -->
+                                              <option *ngFor="let uom of data" value="{{uom.id}}">{{uom.unit_name}}</option>
                                             </select>
                                     </div>
                                 </div>
@@ -58,7 +59,8 @@
                                     <div class="form-group">
                                         <label for="raw_product_conv_uom">Conv. UOM</label>
                                         <select class="form-control" formControlName="raw_product_conv_uom" id="raw_product_conv_uom">
-                                                <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option>
+                                                <option *ngFor="let uom of data" value="{{uom.id}}">{{uom.unit_name}}</option>
+                                                <!-- <option *ngFor="let uom of uoms" value="{{uom.id}}">{{uom.unit_name}}</option> -->
                                                 </select>
                                     </div>
                                 </div>
@@ -82,7 +84,7 @@
                                             </select>
                                         </div> -->
                                     <div class="form-group">
-                                        <label for="raw_product_batch_type">Batch Type</label>
+                                        <label for="raw_product_batch_type">Batch Type</label> <br/>
                                         <div class="btn-group btn-group-toggle btn-group-sm btn-raised" formControlName="raw_product_batch_type" ngbRadioGroup name="raw_product_batch_type">
                                             <label ngbButtonLabel class="btn-light btn-sm btn-raised">
                                                                 <input ngbButton type="radio"  value="1"> Yes</label>
@@ -100,7 +102,7 @@
                                                 </select>
                                         </div> -->
                                     <div class="form-group">
-                                        <label for="raw_product_maintain_stock_ledger">Maintain Stock Ledger</label>
+                                        <label for="raw_product_maintain_stock_ledger">Maintain Stock Ledger</label><br/>
                                         <div class="btn-group btn-group-toggle btn-group-sm btn-raised" formControlName="raw_product_maintain_stock_ledger" ngbRadioGroup name="raw_product_maintain_stock_ledger">
                                             <label ngbButtonLabel class="btn-light btn-sm btn-raised">
                                                             <input ngbButton type="radio"  value="1"> Yes</label>
@@ -110,39 +112,36 @@
                                     </div>
 
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="raw_product_store_location">Store Location</label>
-                                        <input type="text" formControlName="raw_product_store_location" id="raw_product_store_location" class="form-control border-primary" name="raw_product_store">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="raw_product_opening_stock">Opening Stock</label>
-                                        <input type="text" formControlName="raw_product_opening_stock" id="raw_product_opening_stock" class="form-control border-primary" name="raw_product_opening_stock">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="raw_product_opening_amount">Opening Amount</label>
-                                        <input type="number" formControlName="raw_product_opening_amount" id="raw_product_opening_amount" class="form-control border-primary" name="raw_product_opening_amount">
-                                    </div>
-                                </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="raw_product_rate_pick_from">Rate Pick From</label>
                                         <select class="form-control" formControlName="raw_product_rate_pick_from" id="raw_product_rate_pick_from">
-                                                      <option>MRP Rates Standards</option>
-                                                      <option>Sales Rates Standards</option>
-                                                    </select>
+                                                          <option>MRP Rates Standards</option>
+                                                          <option>Sales Rates Standards</option>
+                                                        </select>
                                     </div>
                                 </div>
+
                             </div>
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h4 class="form-section mt-1"><i class="ft-info"></i>Item Price</h4>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="raw_product_purchase_rate">Purchase Rate</label>
+                                                <input type="number" formControlName="raw_product_purchase_rate" id="raw_product_purchase_rate" class="form-control border-primary" name="raw_product_purchase_rate">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="raw_product_sales_rate">Sales Rate</label>
+                                                <input type="number" formControlName="raw_product_sales_rate" id="raw_product_sales_rate" class="form-control border-primary" name="raw_product_sales_rate">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <!-- <div class="col-lg-6">
                                                 <div class="form-group">
@@ -152,18 +151,20 @@
                                             </div> -->
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label for="raw_product_sales_rate">MRP Rate</label>
+                                                <label for="raw_product_mrp_rate">MRP Rate</label>
                                                 <input type="number" formControlName="raw_product_mrp_rate" id="raw_product_sales_rate" class="form-control border-primary" name="raw_product_sales_rate">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="raw_product_gst_slot">GST Slot %</label>
+
                                                 <select class="form-control" formControlName="raw_product_gst_slot" id="raw_product_gst_slot">
-                                                                              <option>5</option>
+                                                        <option *ngFor="let tax of taxes" value="{{tax.id}}">{{tax.tax_name}}</option>
+                                                                              <!-- <option>5</option>
                                                                               <option>12</option>
                                                                               <option>18</option>
-                                                                              <option>28</option>
+                                                                              <option>28</option> -->
                                                                             </select>
                                             </div>
                                         </div>
@@ -191,14 +192,6 @@
                                             <div class="form-group">
                                                 <label for="raw_product_min_level">Min Level</label>
                                                 <input type="number" formControlName="raw_product_min_level" id="raw_product_min_level" class="form-control border-primary" name="raw_product_min_level">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label for="raw_product_reorder_level">Reorder Level</label>
-                                                <input type="number" formControlName="raw_product_reorder_level" id="raw_product_reorder_level" class="form-control border-primary" name="raw_product_reorder_level">
                                             </div>
                                         </div>
                                     </div>

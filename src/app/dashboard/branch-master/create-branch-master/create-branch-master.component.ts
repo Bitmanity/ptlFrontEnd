@@ -41,7 +41,6 @@ export class CreateBranchMasterComponent implements OnInit {
           this.data = l_data.data
           console.log(this.data)
         }
-
     })
     this.branch_data = fb.group({
       "id":['new',Validators.required],

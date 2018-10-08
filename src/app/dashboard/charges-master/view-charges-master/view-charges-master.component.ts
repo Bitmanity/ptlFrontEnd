@@ -16,7 +16,7 @@ export class ViewChargesMasterComponent implements OnInit {
   }
   toCreate()
   {
-    this.router.navigateByUrl('/dashboard/charges-master/create');
+    this.router.navigateByUrl('/dashboard/charges-master/new');
   }
 
 }
