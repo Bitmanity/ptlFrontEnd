@@ -1,4 +1,3 @@
-<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -10,13 +9,15 @@
             </div>
             <div class="card-body">
                 <div class="card-block">
-                    <form [formGroup]="branch_data" (ngSubmit)='onSubmit(branch_data)'>
+                    <form [formGroup]="branch_data" (ngSubmit)="addOrUpdate(branch_data)">
                         <h4 class="form-section"><i class="ft-info"></i>Branch Details</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="branch_name">Branch Name</label>
                                     <input type="text" class="form-control" formControlName="branch_name" id="branch_name" name="branch_name">
+                                    <input type="hidden" formControlName="id" id="id" value="new" class="form-control border-primary" name="id">
+                                    <input type="hidden" formControlName="address_id" value="new" id="address_id" class="form-control border-primary" name="address_id">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -105,9 +106,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="branch_bank">Bank Select</label>
-                                    <select formControlName="branch_bank" class="form-control" id="branch_bank"> 
-                            <option *ngFor="let bank of banks" value="{{bank.id}}">{{bank.name}}-{{bank.account_no}}</option>
+                                    <label for="branch_bank_id">Bank Select</label>
+                                    <select formControlName="branch_bank_id" class="form-control" id="branch_bank_id"> 
+                            <option *ngFor="let bank of data" value="{{bank.id}}">{{bank.bank_name}}-{{bank.account_name}}</option>
                        
                         </select>
                                 </div>
@@ -115,6 +116,8 @@
                         </div>
                         <div class="form-actions left">
                             <input type="submit" [disabled]=isProcessing value="Save" class="btn btn-raised btn-primary">
+                            <input type="submit" [disabled]=isProcessing (click)="cancel()" value="Cancel" class="btn btn-raised btn-danger ml-2">
+                            <!-- <button class="btn btn-primary btn-raised" (click)="cancel()">Back</button> -->
                         </div>
                     </form>
                 </div>
@@ -122,4 +125,3 @@
         </div>
     </div>
 </div>
-<button class="btn btn-primary btn-raised" (click)="toBack()">Back</button>

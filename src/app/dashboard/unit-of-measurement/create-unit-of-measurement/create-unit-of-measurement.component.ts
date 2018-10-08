@@ -17,11 +17,12 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 
   active = 'today';
   debug = true;
-  unit_data: FormGroup;
   formTouched: boolean = false;
   isProcessing: boolean = false;
   errors: any;
-	id: any = "new";
+  id: any = "new";
+  // Replacable
+  unit_data: FormGroup;
   uom: any;
   constructor(
     private apiService: ApiService,
@@ -31,20 +32,20 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
     private shareService: ShareService,
     private notifyService: NotifyService,
     private router:Router,
-  ) {
+  ) 
+  // 1 Starts
+  {
     this.unit_data = fb.group({
       "unit_name": ['Kg', Validators.required],
+      "id":['new',Validators.required],
     });
   }
+  // 1 Ends
   
-  resetErrorMessages(){
-		this.errors = {			
-			"id": [""],
-			"unit_name": [""]	
-		}
-	}
+  
 
   ngOnInit() {
+    // 2 Starts
     this.route.params.subscribe(params => {
       console.log(params['id'])
 			if(params['id']=='new'){
@@ -53,9 +54,11 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 				this.id = +params['id']; // (+) converts string 'id' to a number
 				this.getData(this.id);
 			}
-		});
+    });
+    // 2 Ends
   
   }
+  // 3 Starts
   getData(id:any){
 		this.apiService.get("admin/uom/"+id)
 		.then(data => { 
@@ -64,10 +67,10 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 		})
 	}
   addOrUpdate(uom){
-    this.notifyService.show({
-      title: 'Success',
-      message: 'Done'
-    }, 'error');
+    // this.notifyService.show({
+    //   title: 'Success',
+    //   message: 'Done'
+    // }, 'success');
 		
 		this.formTouched = true;
 		if(uom.invalid){
@@ -81,19 +84,18 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
         let result: any = data;
 				//success
         this.isProcessing = false;
-        if(result.status == 'success')
+        if(result.status)
 							{
 								this.notifyService.show({
 									title: 'Success',
 									message: result.message
-								});
+								},'success');
 							}
 							else{
 									this.notifyService.show({
 										title: 'Error',
-										type : 'error',
 										message: result.message
-									});
+									}, 'error');
 							}
     
 			})
@@ -104,10 +106,15 @@ export class CreateUnitOfMeasurementComponent implements OnInit {
 			})
 		
   }
-
-
-  toBack(){
+  resetErrorMessages(){
+		this.errors = {			
+			"id": [""],
+			"unit_name": [""]	
+		}
+  }
+  
+  cancel(){
     this.router.navigateByUrl('/dashboard/unit-of-measurement');
   }
-
+// 3 Ends
 }

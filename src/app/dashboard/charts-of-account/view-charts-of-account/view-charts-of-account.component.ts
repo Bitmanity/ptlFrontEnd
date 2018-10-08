@@ -16,7 +16,7 @@ export class ViewChartsOfAccountComponent implements OnInit {
   }
   toCreate()
   {
-    this.router.navigateByUrl('/dashboard/charts-of-accounts/create');
+    this.router.navigateByUrl('/dashboard/charts-of-accounts/new');
   }
 
 }

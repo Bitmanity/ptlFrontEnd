@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="card-block">
-                    <form [formGroup]="billOfMaterial" (ngSubmit)='onSubmit(billOfMaterial)'>
+                    <form [formGroup]="cbom_data" (ngSubmit)="addOrUpdate(cbom_data)">
                         <h4 class="form-section"><i class="ft-info"></i>Details</h4>
                         <div class="row">
                             <div class="col-md-4 ">

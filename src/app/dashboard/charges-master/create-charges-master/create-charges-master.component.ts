@@ -3,7 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../shared/services/api.service';
 import { FormDataService } from '../../../shared/services/form-data.service';
 import * as alertFunctions from '../../../shared/data/sweet-alert';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ShareService } from '../../../shared/services/share.service';
+import { NotifyService } from '../../../shared/services/notify.service';
 
 @Component({
   selector: 'app-create-charges-master',
@@ -11,38 +13,107 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-charges-master.component.scss']
 })
 export class CreateChargesMasterComponent implements OnInit {
-  chargeMaster:FormGroup
-  isProcessing:boolean= false;
+
+  active = 'today';
+  debug = true;
+  formTouched: boolean = false;
+  isProcessing: boolean = false;
+  errors: any;
+  id: any = "new";
+
+  charges_data: FormGroup;
+  charges: any;
+  
   constructor(
-    private fb:FormBuilder,
-    private apiService:ApiService,
-    private formService:FormDataService,
+    private apiService: ApiService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private formService: FormDataService,
+    private shareService: ShareService,
+    private notifyService: NotifyService,
     private router:Router,
-  ) { }
+  ) { 
+    this.charges_data = this.fb.group({
+      "charges_master_display_name":['',Validators.required],
+      "charges_master_charge_type":['',Validators.required],
+      "charges_master_purchase_account":['',Validators.required],
+      "charges_master_sales_account":['',Validators.required],
+      "raw_product_purchase_percentage":['',Validators.required],
+      "charges_master_decimal_place":['',Validators.required],
+  })
+  }
 
   ngOnInit() {
-    this.chargeMaster = this.fb.group({
-        "charges_master_display_name":['',Validators.required],
-        "charges_master_charge_type":['',Validators.required],
-        "charges_master_purchase_account":['',Validators.required],
-        "charges_master_sales_account":['',Validators.required],
-        "raw_product_purchase_percentage":['',Validators.required],
-        "charges_master_decimal_place":['',Validators.required],
-    })
+    
+    this.route.params.subscribe(params => {
+      console.log(params['id'])
+			if(params['id']=='new'){
+				this.id="new";
+			}else{
+				this.id = +params['id']; // (+) converts string 'id' to a number
+				this.getData(this.id);
+			}
+    });
+    
+  
   }
-
-  onSubmit(chargeMaster)
-  {
-    this.isProcessing = true;
-    this.formService.storeData('admin/addCharges',chargeMaster.value).then(data=>{
-          let status :any = data 
-          if(status.status){
-            
-          }
-    })
+  
+  getData(id:any){
+		this.apiService.get("admin/charges/"+id)
+		.then(data => { 
+			let l_data: any = data;
+			this.charges_data.patchValue(l_data.data);					
+		})
+	}
+  addOrUpdate(charges){
+    // this.notifyService.show({
+    //   title: 'Success',
+    //   message: 'Done'
+    // }, 'success');
+		
+		this.formTouched = true;
+		if(charges.invalid){
+			return false;
+		}
+		this.resetErrorMessages();
+		this.isProcessing = true;
+		
+			//post request
+			this.apiService.post("admin/charges",charges.value).then( data => {
+        let result: any = data;
+				//success
+        this.isProcessing = false;
+        if(result.status)
+							{
+								this.notifyService.show({
+									title: 'Success',
+									message: result.message
+								},'success');
+							}
+							else{
+									this.notifyService.show({
+										title: 'Error',
+										message: result.message
+									}, 'error');
+							}
+    
+			})
+			.catch( error => {
+        this.isProcessing = false;
+        let errors: any = error;
+        this.errors = errors;
+			})
+		
   }
-  toBack(){
-    this.router.navigateByUrl('/dashboard/charges-master');
+  resetErrorMessages(){
+		this.errors = {			
+			"id": [""],
+			"unit_name": [""]	
+		}
+  }
+  
+  cancel(){
+    this.router.navigateByUrl('/dashboard/unit-of-measurement');
   }
 
 }

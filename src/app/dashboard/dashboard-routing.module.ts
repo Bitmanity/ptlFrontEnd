@@ -30,7 +30,7 @@ const routes:Routes= [
         component: ViewChargesMasterComponent
       },
       {
-        path:'charges-master/create',
+        path:'charges-master/:id',
         component:CreateChargesMasterComponent
       },
       {
@@ -38,7 +38,7 @@ const routes:Routes= [
         component:AddproductComponent,
       },
       {
-        path:'branch-master/create',
+        path:'branch-master/:id',
         component:CreateBranchMasterComponent
       },
       {
@@ -50,7 +50,7 @@ const routes:Routes= [
       //   component:BankMasterComponent
       // },
       {
-        path:'godown-master/create',
+        path:'godown-master/:id',
         component:CreateGodownMasterComponent
       },
       {
@@ -62,7 +62,7 @@ const routes:Routes= [
         component:ViewProductsComponent
       },
       {
-        path:'bill-of-material/create',
+        path:'bill-of-material/:id',
         component:CreateBillOfMaterialComponent
       },
       {
@@ -74,7 +74,7 @@ const routes:Routes= [
         component:BankMasterViewComponent
       },
       {
-        path:'bank-master/create',
+        path:'bank-master/:id',
         component:BankMasterCreateComponent
       },
       {
@@ -86,7 +86,7 @@ const routes:Routes= [
         component:ViewFinishedProductComponent
       },
       {
-        path:'charts-of-accounts/create',
+        path:'charts-of-accounts/:id',
         component:CreateChartsOfAccountComponent
       },
       {

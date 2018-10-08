@@ -8,7 +8,6 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 // import { BankMasterComponent } from './bank-master/bank-master.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { BillofmaterialComponent } from './billofmaterial/billofmaterial.component';
 import { BankMasterViewComponent } from './bank-master/bank-master-view/bank-master-view.component';
 import { BankMasterCreateComponent } from './bank-master/bank-master-create/bank-master-create.component';
 import { CreateChartsOfAccountComponent } from './charts-of-account/create-charts-of-account/create-charts-of-account.component';
@@ -46,7 +45,6 @@ import { ViewBillOfMaterialComponent } from './bill-of-material/view-bill-of-mat
     AddproductComponent,    
     // BankMasterComponent,
     ViewProductsComponent,
-    BillofmaterialComponent,
     BankMasterCreateComponent,
     BankMasterViewComponent,
     CreateChartsOfAccountComponent,

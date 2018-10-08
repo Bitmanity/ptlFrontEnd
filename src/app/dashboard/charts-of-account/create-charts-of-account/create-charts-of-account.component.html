@@ -6,20 +6,22 @@
             </div>
             <div class="card-body">
                 <div class="px-3">
-                    <form class="form" [formGroup]="chartOfAccounts" (ngSubmit)="onSubmit(chartOfAccounts)">
+                    <form class="form" [formGroup]="coa_data" (ngSubmit)="addOrUpdate(coa_data)">
                         <div class="form-body">
                             <h4 class="form-section"><i class="ft-info"></i> About</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Company Name</label>
-                                        <input type="text" formControlName="ca_company_name" placeholder="Roxso LLP" id="name" class="form-control border-primary" name="name">
+                                        <label for="ca_company_name">Company Name</label>
+                                        <input type="text" formControlName="ca_company_name" placeholder="Roxso LLP" id="ca_company_name" class="form-control border-primary" name="ca_company_name">
+                                        <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                        <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="dName">Company Display Name</label>
-                                        <input type="text" formControlName="ca_company_display_name" id="dName" placeholder="Roxso" class="form-control border-primary" name="company">
+                                        <label for="ca_company_display_name">Company Display Name</label>
+                                        <input type="text" formControlName="ca_company_display_name" id="ca_company_display_name" placeholder="Roxso" class="form-control border-primary" name="ca_company_display_name">
                                     </div>
                                 </div>
                             </div>
@@ -52,14 +54,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="oAmt">Opening Amount</label>
-                                        <input type="text" formControlName="ca_opening_amount" id="oAmt" class="form-control border-primary" name="oAmt">
+                                        <label for="ca_opening_amount">Opening Amount</label>
+                                        <input type="text" formControlName="ca_opening_amount" id="ca_opening_amount" class="form-control border-primary" name="ca_opening_amount">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="oat">Opening Amount Type</label> <br/>
-                                        <div class="btn-group btn-group-toggle" ngbRadioGroup id="ca_category" formControlName="ca_opening_type">
+                                        <label for="ca_opening_type">Opening Amount Type</label> <br/>
+                                        <div class="btn-group btn-group-toggle" ngbRadioGroup id="ca_opening_type" formControlName="ca_opening_type">
                                             <label ngbButtonLabel class="btn btn-raised btn-sm btn-light">
                           <input ngbButton type="radio" value="Creditor"> Creditor
                         </label>
@@ -97,56 +99,51 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="firstName">First Name</label>
-                                                        <input type="text" formControlName="ca_first_name" id="firstName" class="form-control border-primary" name="firstName">
+                                                        <label for="ca_first_name">First Name</label>
+                                                        <input type="text" formControlName="ca_first_name" id="ca_first_name" class="form-control border-primary" name="ca_first_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="lastName">Last Name</label>
-                                                        <input type="text" formControlName="ca_last_name" id="lastName" class="form-control border-primary" name="lastName">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="mNumber">Mobile Number</label>
-                                                        <input type="tel" formControlName="ca_mobile_number" id="mNumber" class="form-control border-primary" name="mNumber">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="fax">FAX</label>
-                                                        <input type="text" formControlName="ca_fax" id="fax" class="form-control border-primary" name="fax">
+                                                        <label for="ca_last_name">Last Name</label>
+                                                        <input type="text" formControlName="ca_last_name" id="ca_last_name" class="form-control border-primary" name="ca_last_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="email">Email</label>
-                                                        <input type="email" formControlName="ca_email" id="email" class="form-control border-primary" name="email">
+                                                        <label for="ca_mobile_number">Mobile Number</label>
+                                                        <input type="tel" formControlName="ca_mobile_number" id="ca_mobile_number" class="form-control border-primary" name="ca_mobile_number">
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="website">Website</label>
-                                                        <input type="text" formControlName="ca_website" id="website" class="form-control border-primary" name="website">
+                                                        <label for="ca_email">Email</label>
+                                                        <input type="ca_email" formControlName="ca_email" id="ca_email" class="form-control border-primary" name="ca_email">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="email">Designation</label>
-                                                        <input type="email" formControlName="ca_designation" id="email" class="form-control border-primary" name="email">
+                                                        <label for="ca_designation">Designation</label>
+                                                        <input type="ca_designation" formControlName="ca_designation" id="ca_designation" class="form-control border-primary" name="ca_designation">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="website">Branch</label>
-                                                        <input type="text" formControlName="ca_branch" id="website" class="form-control border-primary" name="website">
+                                                        <label for="ca_branch">Branch</label>
+                                                        <input type="text" formControlName="ca_branch" id="ca_branch" class="form-control border-primary" name="ca_branch">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="ca_fax">FAX</label>
+                                                        <input type="text" formControlName="ca_fax" id="ca_fax" class="form-control border-primary" name="ca_fax">
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,36 +152,36 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="bbn">Block No./ Building Name</label>
-                                                        <input type="text" formControlName="ca_address_building" class="form-control" id="bbn" name="bbn">
+                                                        <label for="ca_address_building">Block No./ Building Name</label>
+                                                        <input type="text" formControlName="ca_address_building" class="form-control" id="ca_address_building" name="ca_address_building">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="inputRName">Road Name</label>
-                                                        <input type="text" formControlName="ca_address_road_name" class="form-control" id="inputRName" name="inputRNamev">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="lmark">Landmark</label>
-                                                        <input type="text" formControlName="ca_address_landmark" class="form-control" id="lmark" name="lmark">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="pincode">Pincode</label>
-                                                        <input type="text" formControlName="ca_address_pincode" class="form-control" id="pincode" name="pincode">
+                                                        <label for="ca_address_road_name">Road Name</label>
+                                                        <input type="text" formControlName="ca_address_road_name" class="form-control" id="ca_address_road_name" name="ca_address_road_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="countrySelect">Country</label>
-                                                        <select class="form-control" formControlName="ca_address_country" id="countrySelect">
+                                                        <label for="ca_address_landmark">Landmark</label>
+                                                        <input type="text" formControlName="ca_address_landmark" class="form-control" id="ca_address_landmark" name="ca_address_landmark">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="ca_address_pincode">Pincode</label>
+                                                        <input type="text" formControlName="ca_address_pincode" class="form-control" id="ca_address_pincode" name="ca_address_pincode">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="ca_address_country">Country</label>
+                                                        <select class="form-control" formControlName="ca_address_country" id="ca_address_country">
                                 <option>Select Option</option>
                                 <option>India</option>
                                 <option>China</option>
@@ -194,8 +191,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="stateSelect">State</label>
-                                                        <select class="form-control" formControlName="ca_address_state" id="stateSelect">
+                                                        <label for="ca_address_state">State</label>
+                                                        <select class="form-control" formControlName="ca_address_state" id="ca_address_state">
                                 <option>Select Option</option>
                                 <option>Maharashtra</option>
                                 <option>Gujarat</option>
@@ -207,8 +204,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="City">City</label>
-                                                        <select class="form-control" formControlName="ca_address_city" id="CitySelect">
+                                                        <label for="ca_address_city">City</label>
+                                                        <select class="form-control" formControlName="ca_address_city" id="ca_address_city">
                                 <option>Select Option</option>
                                 <option>Mumbai</option>
                                 <option>Nagpur</option>
@@ -222,24 +219,24 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="pan">PAN</label>
-                                                        <input type="text" formControlName="ca_pan" class="form-control" id="pan" name="pan">
+                                                        <label for="ca_pan">PAN</label>
+                                                        <input type="text" formControlName="ca_pan" class="form-control" id="ca_pan" name="ca_pan">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="gstn">GSTN</label>
-                                                        <input type="text" formControlName="ca_gstn" class="form-control" id="gstn" name="gstn">
+                                                        <label for="ca_gstn">GSTN</label>
+                                                        <input type="text" formControlName="ca_gstn" class="form-control" id="ca_gstn" name="ca_gstn">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="tan">TAN</label>
-                                                        <input type="text" formControlName="ca_tan" class="form-control" id="tan" name="tan">
+                                                        <label for="ca_tan">TAN</label>
+                                                        <input type="text" formControlName="ca_tan" class="form-control" id="ca_tan" name="ca_tan">
                                                     </div>
                                                 </div>
 
@@ -247,12 +244,21 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="issueinput3">Date Opened</label>
-                                                        <input type="date" formControlName="ca_date_opened" id="issueinput3" class="form-control" name="dateopened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
+                                                        <label for="ca_date_opened">Date Opened</label>
+                                                        <input type="date" formControlName="ca_date_opened" id="issueinput3" class="form-control" name="ca_date_opened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date Opened">
                                                     </div>
                                                 </div>
 
                                             </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="ca_website">Website</label>
+                                                        <input type="text" formControlName="ca_website" id="ca_website" class="form-control border-primary" name="ca_website">
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

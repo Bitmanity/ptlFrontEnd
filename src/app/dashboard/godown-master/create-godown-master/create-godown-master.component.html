@@ -10,13 +10,15 @@
             </div>
             <div class="card-body">
                 <div class="card-block">
-                    <form [formGroup]="godown_data" (ngSubmit)='onSubmit(godown_data)'>
+                    <form [formGroup]="godown_data" (ngSubmit)='addOrUpdate(godown_data)'>
                         <h4 class="form-section"><i class="ft-info"></i>Godown Details</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="godown_name">Godown Name</label>
                                     <input type="text" class="form-control" formControlName="godown_name" id="godown_name" name="godown_name">
+                                    <input type="hidden" formControlName="id" id="id" class="form-control border-primary" name="id">
+                                    <input type="hidden" formControlName="address_id" id="address_id" value="new" class="form-control border-primary" name="address_id">
                                 </div>
                             </div>
                             <div class="col-md-6">

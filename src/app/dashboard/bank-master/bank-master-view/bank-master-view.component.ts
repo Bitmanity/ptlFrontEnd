@@ -88,7 +88,7 @@ source: LocalDataSource;
   }
   toCreate()
   {
-    this.router.navigateByUrl('/dashboard/bank-master/create');
+    this.router.navigateByUrl('/dashboard/bank-master/new');
   }
 }
 
